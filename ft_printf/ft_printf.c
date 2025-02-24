@@ -6,7 +6,7 @@
 /*   By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:01:46 by anareval          #+#    #+#             */
-/*   Updated: 2025/01/31 15:48:49 by anareval         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:37:45 by anareval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_printf(char const *str, ...)
 			cont += select_fomat((char)str[i], arg);
 		}
 		else
-			cont += ft_putchar_fd(str[i], 1);
+			cont += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(arg);
@@ -44,22 +44,22 @@ static int	select_fomat(char c, va_list arg)
 
 	cont = 0;
 	if (c == 'c')
-		cont += ft_putchar_fd(va_arg(arg, int), 1);
+		cont += ft_putchar(va_arg(arg, int));
 	else if (c == 's')
-		cont += ft_putstr_fd(va_arg(arg, char *), 1);
+		cont += ft_putstr(va_arg(arg, char *));
 	else if (c == 'p')
 		cont += ft_putptr(va_arg(arg, char *));
 	else if (c == 'd')
-		cont += ft_putnbr_fd(va_arg(arg, long), 1);
+		cont += ft_putnbr(va_arg(arg, long));
 	else if (c == 'i')
-		cont += ft_putnbr_fd(va_arg(arg, int), 1);
+		cont += ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
-		cont += ft_putnbruns_fd(va_arg(arg, int), 1);
+		cont += ft_putnbruns(va_arg(arg, int));
 	else if (c == 'x')
-		cont += ft_putnbrex_fd(va_arg(arg, long), 1, 0);
+		cont += ft_putnbrex(va_arg(arg, long), 0);
 	else if (c == 'X')
-		cont += ft_putnbrex_fd(va_arg(arg, long), 1, 1);
+		cont += ft_putnbrex(va_arg(arg, long), 1);
 	else if (c == '%')
-		cont += ft_putchar_fd('%', 1);
+		cont += ft_putchar('%');
 	return (cont);
 }

@@ -6,7 +6,7 @@
 /*   By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:07:40 by anareval          #+#    #+#             */
-/*   Updated: 2025/01/31 15:02:16 by anareval         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:36:10 by anareval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <stdarg.h>
 
 int	ft_printf(char const *str, ...);
-int	ft_putchar_fd(char c, int fd);
-int	ft_putstr_fd(char *s, int fd);
-int	ft_putnbr_fd(int n, int fd);
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
+int	ft_putnbr(int n);
 int	ft_putptr(void *ptr);
-int	ft_putnbrex_fd(int n, int fd, int i);
-int	ft_putnbruns_fd(int n, int fd);
+int	ft_putnbrex(int n, int i);
+int	ft_putnbruns(int n);
 
 #endif
