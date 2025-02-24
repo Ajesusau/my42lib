@@ -6,7 +6,7 @@
 #    By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 13:32:02 by anareval          #+#    #+#              #
-#    Updated: 2025/02/24 19:33:12 by anareval         ###   ########.fr        #
+#    Updated: 2025/02/24 23:24:36 by anareval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
 RM = rm -f
+HEADERS = 	-I ./include
 
 LIBFT_SRCS =		./libft/ft_isalpha.c \
 					./libft/ft_isdigit.c \
@@ -82,7 +83,7 @@ $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $< 
 
 clean:
 	@echo "🗑️  Deleting .o files..."
