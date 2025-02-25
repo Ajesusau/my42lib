@@ -66,8 +66,7 @@ FTPRINTF_SRCS =		./ft_printf/ft_printf.c \
 					./ft_printf/ft_putnbr_utils.c \
 					./ft_printf/ft_put_utils.c
 
-GETNEXTLINE_SRCS =	./get_next_line/get_next_line.c \
-					./get_next_line/get_next_line_utils.c
+GETNEXTLINE_SRCS =	./get_next_line/get_next_line.c
 
 SRCS = $(LIBFT_SRCS) $(FTPRINTF_SRCS) $(GETNEXTLINE_SRCS)
 
