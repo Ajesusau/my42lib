@@ -6,11 +6,24 @@
 #    By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 13:32:02 by anareval          #+#    #+#              #
-#    Updated: 2025/02/24 23:30:25 by anareval         ###   ########.fr        #
+#    Updated: 2025/03/27 17:43:47 by anareval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
+
+# Colors ANSI
+RED		= \033[1;31m
+GREEN	= \033[1;32m
+YELLOW	= \033[1;33m
+BLUE	= \033[1;34m
+MAGENTA	= \033[1;35m
+CYAN	= \033[1;36m
+WHITE	= \033[1;37m
+RESET	= \033[0m
+PURPLE	= \033[38;5;141m
+ORANGE	= \033[38;5;208m
+TEAL	= \033[38;5;80m
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -72,31 +85,38 @@ SRCS = $(LIBFT_SRCS) $(FTPRINTF_SRCS) $(GETNEXTLINE_SRCS)
 
 OBJS = $(SRCS:.c=.o)
 
-all: st_msg $(NAME)
-	@echo "✅ Build completed successfully!"
+all:$(NAME)
+	@echo "$(GREEN)✅ Build completed successfully!$(RESET)"
 
 st_msg:
-	@echo "📦 Creating the library: $(NAME)"
+	
 
 $(NAME): $(OBJS)
+	@echo "$(PURPLE)📦 Creating the library: $(NAME)"
 	@$(AR) $(NAME) $(OBJS)
 
 %.o: %.c
+	@echo "$(CYAN)🛠️  Compiling $@...$(RESET)"
+	$(if $(filter libft/%,$<), $(LIB1_SEP))
+	$(if $(filter ft_printf/%,$<), $(LIB2_SEP))
+	$(if $(filter get_next_line/%,$<), $(LIB3_SEP))
 	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $< 
 
 clean:
-	@echo "🗑️  Deleting .o files..."
+	@echo "$(MAGENTA)🗑️🧹Deleting libft .o files...$(RESET)"
 	@$(RM) $(OBJS)
-	@echo "✅ Done!"
+	@echo "$(GREEN)✅ Done!$(RESET)"
 
-fclean: clean
-	@echo "🚮 Deleting $(NAME)..."
+nclean:
+	@echo "$(RED)💥 Deleting $(NAME)...$(RESET)"
 	@$(RM) $(NAME)
-	@echo "✅ Done!"
+	@echo "$(GREEN)✅ Done!$(RESET)"
+
+fclean: clean nclean
 
 re: re_msg fclean all
 	
 re_msg:
-	@echo "🔄 Recreating the library..."
+	@echo "$(ORANGE)🔄 Recreating $(NAME)...$(RESET)"
 
-.PHONY: all clean fclean re
+.PHONY: all clean nclean fclean re
