@@ -97,9 +97,6 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	@echo "$(CYAN)🛠️  Compiling $@...$(RESET)"
-	$(if $(filter libft/%,$<), $(LIB1_SEP))
-	$(if $(filter ft_printf/%,$<), $(LIB2_SEP))
-	$(if $(filter get_next_line/%,$<), $(LIB3_SEP))
 	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $< 
 
 clean:
