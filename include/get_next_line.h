@@ -6,7 +6,7 @@
 /*   By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:18:40 by anareval          #+#    #+#             */
-/*   Updated: 2025/02/18 17:44:29 by anareval         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:59:33 by anareval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-char	*get_next_line(int fd);
-char	*ft_strdup(const char *str);
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *str, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(const char *s1, const char *s2);
+# include "libft.h"
 
 #endif
