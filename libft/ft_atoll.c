@@ -6,7 +6,7 @@
 /*   By: anareval <anareval@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:00:08 by anareval          #+#    #+#             */
-/*   Updated: 2025/06/30 18:38:39 by anareval         ###   ########.fr       */
+/*   Updated: 2025/06/30 18:45:24 by anareval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ long long	ft_atoll(const char *str)
 	long long	n;
 	int			sig;
 	int			i;
-	long long	prev;
 
 	i = 0;
 	n = 0;
@@ -41,12 +40,13 @@ long long	ft_atoll(const char *str)
 	sig = ft_get_sign(str, &i);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		prev = n;
-		n = (n * 10) + (str[i] - '0');
-		if (sig == 1 && (n < prev || n > LLONG_MAX))
+		if (sig == 1 && (n > LLONG_MAX / 10 || 
+			(n == LLONG_MAX / 10 && (str[i] - '0') > LLONG_MAX % 10)))
 			return (LLONG_MAX);
-		if (sig == -1 && n > 9223372036854775808ULL)
+		if (sig == -1 && (n > -(LLONG_MIN / 10) || 
+			(n == -(LLONG_MIN / 10) && (str[i] - '0') > -(LLONG_MIN % 10))))
 			return (LLONG_MIN);
+		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
 	return (n * sig);
