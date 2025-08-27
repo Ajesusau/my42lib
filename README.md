@@ -18,9 +18,9 @@ Todo se compila con un **único Makefile**, lo que permite integrar la librería
 
 ## ✅ Funcionalidades Incluidas
 
-- **libft** → funciones de memoria, cadenas, listas enlazadas y utilidades generales.  
-- **get_next_line** → lectura de líneas desde descriptores de archivo con `BUFFER_SIZE`.  
-- **ft_printf** → implementación de `printf` con soporte de conversores básicos.  
+- **[libft](https://github.com/Ajesusau/libft)** → funciones de memoria, cadenas, listas enlazadas y utilidades generales.  
+- **[get_next_line](https://github.com/Ajesusau/get_next_line)** → lectura de líneas desde descriptores de archivo con `BUFFER_SIZE`.  
+- **[ft_printf](https://github.com/Ajesusau/ft_printf)** → implementación de `printf` con soporte de conversores básicos.  
 - **extras** → utilidades adicionales creadas para facilitar otros proyectos.  
 
 
